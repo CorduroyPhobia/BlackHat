@@ -94,11 +94,12 @@ mkdir -p $PROJECT_DIR/captures
 mkdir -p $PROJECT_DIR/configs
 
 # Copy main firmware (assuming it's in current directory)
-if [ -f "blackhat_firmware.py" ]; then
-    cp blackhat_firmware.py $PROJECT_DIR/
-    chmod +x $PROJECT_DIR/blackhat_firmware.py
+if [ -f "blackhat.py" ]; then
+    cp blackhat.py $PROJECT_DIR/
+    chmod +x $PROJECT_DIR/blackhat.py
 else
-    echo "Warning: blackhat_firmware.py not found in current directory"
+    echo "Warning: blackhat.py not found in current directory"
+    echo "Please ensure the main system file is named 'blackhat.py'"
 fi
 
 # Create systemd service
@@ -113,7 +114,7 @@ Wants=network.target
 Type=simple
 User=root
 WorkingDirectory=/opt/blackhat
-ExecStart=/usr/bin/python3 /opt/blackhat/blackhat_firmware.py
+ExecStart=/usr/bin/python3 /opt/blackhat/blackhat.py
 Restart=always
 RestartSec=10
 Environment=PYTHONPATH=/opt/blackhat
@@ -279,7 +280,7 @@ if [ -d "/home/pi/Desktop" ]; then
 [Desktop Entry]
 Name=BlackHat Firmware
 Comment=Educational Hacking Device Interface
-Exec=sudo python3 /opt/blackhat/blackhat_firmware.py
+Exec=sudo python3 /opt/blackhat/blackhat.py
 Icon=/opt/blackhat/images/icon.png
 Terminal=true
 Type=Application
@@ -311,11 +312,13 @@ echo "Installation Complete!"
 echo "=================================="
 echo ""
 echo "BlackHat Educational Firmware has been installed to: $PROJECT_DIR"
+echo "Main system file: $PROJECT_DIR/blackhat.py"
 echo ""
 echo "Configuration:"
 echo "- Service: systemctl status blackhat"
 echo "- Logs: journalctl -u blackhat -f"
 echo "- Config: $PROJECT_DIR/configs/blackhat.conf"
+echo "- Main file: $PROJECT_DIR/blackhat.py"
 echo ""
 echo "Important Notes:"
 echo "1. Place your boot splash image (240x240 PNG) at:"
