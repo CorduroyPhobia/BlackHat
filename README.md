@@ -84,6 +84,9 @@ sudo apt update && sudo apt upgrade -y
 git clone https://github.com/yourusername/blackhat-firmware.git
 cd blackhat-firmware
 
+# Ensure the main file is named correctly
+ls blackhat.py  # Should exist
+
 # Make the installation script executable
 chmod +x install.sh
 
@@ -125,6 +128,15 @@ If you don't have buttons connected, you can use keyboard input:
 - **W/S**: Up/Down navigation
 - **Enter**: Select item
 - **Q**: Back/Quit
+
+### Manual Execution
+```bash
+# Run BlackHat firmware manually
+sudo python3 /opt/blackhat/blackhat.py
+
+# Or with service
+sudo systemctl start blackhat
+```
 
 ## 🔧 Configuration
 
@@ -210,7 +222,7 @@ sudo systemctl disable blackhat
 
 ```
 /opt/blackhat/
-├── blackhat_firmware.py      # Main firmware
+├── blackhat.py               # Main system file
 ├── configs/
 │   └── blackhat.conf        # Configuration file
 ├── images/
