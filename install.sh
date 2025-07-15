@@ -39,7 +39,7 @@ apt install -y \
     python3-setuptools \
     python3-wheel \
     python3-numpy \
-    python3-pillow \
+    python3-pil \
     git \
     i2c-tools \
     wireless-tools \
@@ -58,7 +58,11 @@ apt install -y \
     libfreetype6-dev \
     liblcms2-dev \
     libopenjp2-7 \
-    libtiff5
+    libtiff6-dev \
+    libwebp-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libxcb1-dev
 
 # Enable SPI and I2C
 echo "Enabling SPI and I2C..."
