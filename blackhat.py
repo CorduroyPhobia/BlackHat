@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """
-BlackHat Educational Firmware for Raspberry Pi Zero 2 W
+BlackHat Educational Firmware - Main System File
+For Raspberry Pi Zero 2 W with Waveshare 1.3" LCD
 Inspired by M5StickC Bruce firmware and Flipper Zero
-Hardware: Waveshare Pi Zero WH Package F with UPS Module and 1.3" LCD
 OS: Raspberry Pi OS 32-bit
+
+File: blackhat.py
+Version: 1.0
 
 WARNING: This firmware is for EDUCATIONAL PURPOSES ONLY
 Only use on networks and devices you own or have explicit permission to test
